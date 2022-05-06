@@ -1,6 +1,6 @@
 {
   "name": "plox",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Simple wrapper for Mapbox Places Search",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
