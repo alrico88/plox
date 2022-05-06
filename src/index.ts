@@ -1,4 +1,4 @@
-import { $fetch } from 'ohmyfetch';
+import axios from 'axios';
 import { MapboxPlacesProps, MapboxPlacesFeatureCollection, MapboxPlacesFeature } from './interfaces/mapbox';
 import { SearchOptions, SearchType } from './interfaces/options';
 
@@ -23,11 +23,11 @@ export class Searcher {
     return `https://api.mapbox.com/geocoding/v5/mapbox.places/${text}.json`;
   }
 
-  private searchRaw(
+  private async searchRaw(
     text: string,
     searchOptions: SearchOptions = {},
   ): Promise<MapboxPlacesFeatureCollection> {
-    return $fetch<MapboxPlacesFeatureCollection>(
+    const { data } = await axios.get<MapboxPlacesFeatureCollection>(
       Searcher.getMapboxUrl(text),
       {
         params: {
@@ -40,6 +40,8 @@ export class Searcher {
         },
       },
     );
+
+    return data;
   }
 
   /**

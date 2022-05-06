@@ -46,9 +46,6 @@
     "search",
     "suggestions"
   ],
-  "dependencies": {
-    "ohmyfetch": "^0.4.16"
-  },
   "scripts": {
     "dev": "pnpm run build -- --watch src",
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
@@ -63,5 +60,8 @@
     "hooks": {
       "pre-commit": "pnpm run lint"
     }
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
   }
 }
